@@ -24,6 +24,12 @@
   <ItemGroup>
     <ClInclude Include="zhrf_basis.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="build.sh" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{DB87184C-9300-4A07-BC18-CD749FA9E4F5}</ProjectGuid>
