@@ -3,8 +3,14 @@
 CXX_C=g++
 C_C=gcc
 
-rm -rf ./build
-install -d build
-cd build
+if [[ -n "$1" ]]; then
+	BUILD_DIR=$1
+else
+	BUILD_DIR=build
+fi
+
+rm -rf ./$BUILD_DIR
+install -d $BUILD_DIR
+cd $BUILD_DIR
 cmake -DCMAKE_CXX_COMPILER=$CXX_C -DCMAKE_C_COMPILER=$C_C -DCMAKE_BUILD_TYPE=Debug ../
 make
