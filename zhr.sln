@@ -8,7 +8,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zhr", "zhr.vcxproj", "{C2D1
 		{DB87184C-9300-4A07-BC18-CD749FA9E4F5} = {DB87184C-9300-4A07-BC18-CD749FA9E4F5}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zhr_lib", "zhr_lib.vcxproj", "{DB87184C-9300-4A07-BC18-CD749FA9E4F5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zhr_lib", "zhr_lib\zhr_lib.vcxproj", "{DB87184C-9300-4A07-BC18-CD749FA9E4F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

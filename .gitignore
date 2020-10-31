@@ -35,3 +35,4 @@
 /zhr.vcxproj.user
 Debug
 Release
+*.user
