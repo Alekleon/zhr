@@ -1,12 +1,17 @@
-# $Id: //cts/gen/utils/konfig/konfig-2.0cur/impl/src/cts_lib/CMakeLists.txt#5 $
-# $Author: devel $
-# $DateTime: 2019/09/04 17:49:01 $
-
 project(cts_lib)
+
+#!/bin/bash
+while [ -n "$1" ]
+do
+case "$1" in
+-a | -b | -c) echo "Найдена опция $1" ;;
+*) echo "$1 не опция" ;;
+esac
+shift
+done
 
 cmake_minimum_required(VERSION 3.4)
 set(CMAKE_CONFIGURATION_TYPES Debug Release)
-include(../common.cmake)
 
 get_filename_component(LIB_CTS_PRODUCT ${CMAKE_CURRENT_SOURCE_DIR}/../../ ABSOLUTE)
 set(OS_IDENT "${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_PROCESSOR}")
