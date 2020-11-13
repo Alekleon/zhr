@@ -1,27 +1,14 @@
-project(cts_lib)
-
-#!/bin/bash
-while [ -n "$1" ]
-do
-case "$1" in
--a | -b | -c) echo "Найдена опция $1" ;;
-*) echo "$1 не опция" ;;
-esac
-shift
-done
-
 cmake_minimum_required(VERSION 3.4)
+
+project(zhr)
 set(CMAKE_CONFIGURATION_TYPES Debug Release)
 
-get_filename_component(LIB_CTS_PRODUCT ${CMAKE_CURRENT_SOURCE_DIR}/../../ ABSOLUTE)
-set(OS_IDENT "${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_PROCESSOR}")
-set(LIB_CTS_DESTINATION ${CTS_PRODUCT}/distr/lib/${OS_IDENT})
+#get_filename_component(LIB_ZHR_PRODUCT ${CMAKE_CURRENT_SOURCE_DIR}/../../ ABSOLUTE)
+#set(OS_IDENT "${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_PROCESSOR}")
+#set(LIB_ZHR_DESTINATION ${ZHR_PRODUCT}/distr/lib/${OS_IDENT})
 
 #-------------	TO REMOVE THIS BLOCK.
 #include(../common.cmake)
-#get_filename_component(CTS_PRODUCT ${CMAKE_CURRENT_SOURCE_DIR}/../../../ ABSOLUTE)
-#set(CTS_OS_IDENT "${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_PROCESSOR}")
-#set(CTS_DESTINATION ${CTS_PRODUCT}/distr/lib/${CTS_OS_IDENT}) #
 
 # Static library is created by command add_library(... STATIC ...)
 # and always is treated as "archive", not (dynamic) library.
@@ -37,32 +24,36 @@ set(LIB_CTS_DESTINATION ${CTS_PRODUCT}/distr/lib/${OS_IDENT})
 #  ARCHIVE_OUTPUT_DIRECTORY "${DESTINATION}" )
 
 # Ideally we suppose global variable is already set. 
-#set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CTS_DESTINATION}")
+#set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${ZHR_DESTINATION}")
 #-------------
 
 set(HEADER_FILES
-	cts_basics.h
-	cts_files.h  
-	cts_lib.h  
-	cts_strings.h  
+	zhrf_basis.h
+#	zhrf_files.h  
+#	zhrf_lib.h  
+#	zhrf_strings.h  
 
-	cts_arg_parser.h
-	cts_conf_parser.h
-	cts_sockets.h  
+#	zhrf_arg_parser.h
+#	zhrf_conf_parser.h
+#	zhrf_sockets.h  
 ) 
 
 set(SOURCE_FILES
-	cts_basics.cpp
-	cts_files.cpp  
-	cts_lib.cpp  
-	cts_strings.cpp  
+	zhrf_basis.cpp
+#	zhrf_files.cpp  
+#	zhrf_lib.cpp  
+#	zhrf_strings.cpp  
 
-	cts_arg_parser.cpp
-	cts_conf_parser.cpp
-	cts_sockets.cpp  
+#	zhrf_arg_parser.cpp
+#	zhrf_conf_parser.cpp
+#	zhrf_sockets.cpp  
 )
 
-assign_source_group(${HEADER_FILES} ${SOURCE_FILES})
+#assign_source_group(${HEADER_FILES} ${SOURCE_FILES})
+
+if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17" )
+endif()
 
 add_library ( ${PROJECT_NAME} STATIC 
 	${HEADER_FILES}
@@ -70,8 +61,8 @@ add_library ( ${PROJECT_NAME} STATIC
 )
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-	set_target_properties(${PROJECT_NAME} PROPERTIES ARCHIVE_OUTPUT_NAME libcts )
+	set_target_properties(${PROJECT_NAME} PROPERTIES ARCHIVE_OUTPUT_NAME lib_zhr )
 else ()
-	set_target_properties(${PROJECT_NAME} PROPERTIES ARCHIVE_OUTPUT_NAME cts )
+	set_target_properties(${PROJECT_NAME} PROPERTIES ARCHIVE_OUTPUT_NAME _zhr )
 endif()
-set_target_properties(${PROJECT_NAME} PROPERTIES ARCHIVE_OUTPUT_DIRECTORY "${LIB_CTS_DESTINATION}" )
+#set_target_properties(${PROJECT_NAME} PROPERTIES ARCHIVE_OUTPUT_DIRECTORY "${LIB_ZHR_DESTINATION}" )
