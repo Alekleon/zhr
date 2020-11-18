@@ -39,3 +39,5 @@ Release
 zhr_lib/build
 build
 
+/Debug/output/zhr.exe
+/Release/output/zhr.exe
