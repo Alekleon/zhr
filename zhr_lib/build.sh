@@ -4,7 +4,7 @@
 CXX_COMPILER=g++
 C_COMPILER=gcc
 COMPILE_MODE=Debug
-BUILD_DIR=build
+BUILD_DIR=Build
 #BUILD_NAME=zhr
 
 while [ -n "$1" ]
