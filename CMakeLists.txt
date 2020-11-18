@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 MESSAGE ("PROJECT_NAME: " ${PROJECT_NAME})
 set(ZHR_PROJECT zhr)
-project (zhr)
+project (${ZHR_PROJECT})
 
 MESSAGE ("PROJECT_NAME: " ${PROJECT_NAME})
 MESSAGE ("PROJECT_SOURCE_DIR: " ${PROJECT_SOURCE_DIR})
@@ -38,15 +38,15 @@ endif()
 
 add_subdirectory(zhr_lib)
 
-add_executable( ${ZHR_PROJECT} 
+add_executable( ${PROJECT_NAME} 
 	${ZHR_HEADER_FILES}
 	${ZHR_SOURCE_FILES}
 )
 
-target_include_directories( ${ZHR_PROJECT}
+target_include_directories( ${PROJECT_NAME}
 	PUBLIC ./zhr_lib
 )
 
-target_link_libraries( ${ZHR_PROJECT} zhr_lib )
-target_link_libraries( ${ZHR_PROJECT} ${CMAKE_THREAD_LIBS_INIT} )
+target_link_libraries( ${PROJECT_NAME} zhr_lib )
+target_link_libraries( ${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT} )
 
