@@ -1,26 +1,52 @@
+cmake_minimum_required(VERSION 3.5)
+
+MESSAGE ("PROJECT_NAME: " ${PROJECT_NAME})
+set(ZHR_PROJECT zhr)
 project (zhr)
 
-cmake_minimum_required(VERSION 3.18)
-set(CMAKE_CONFIGURATION_TYPES Debug Release)
+MESSAGE ("PROJECT_NAME: " ${PROJECT_NAME})
+MESSAGE ("PROJECT_SOURCE_DIR: " ${PROJECT_SOURCE_DIR})
+MESSAGE ("PROJECT_BINARY_DIR: " ${PROJECT_BINARY_DIR})
 
-# Enable running of test scripts using ctest
-enable_testing()
+set(CMAKE_CONFIGURATION_TYPES Debug Release)
+MESSAGE ("CMAKE_CONFIGURATION_TYPES: " ${CMAKE_CONFIGURATION_TYPES})
 
 # Setting output directories.
-get_filename_component(ZHR_PRODUCT ${CMAKE_CURRENT_SOURCE_DIR}/../../ ABSOLUTE)
-# MESSAGE ("\nCMAKE_CURRENT_SOURCE_DIR: " ${CMAKE_CURRENT_SOURCE_DIR}\n)
-# MESSAGE ("\nZHR_PRODUCT: " ${ZHR_PRODUCT}\n)
-set(ZHR_DESTINATION ${ZHR_PRODUCT}/distr)
-set(OS_IDENT "${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_PROCESSOR}")
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${ZHR_DESTINATION}/lib/${OS_IDENT}")
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${ZHR_DESTINATION}/bin/${OS_IDENT}")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${ZHR_DESTINATION}/bin/${OS_IDENT}")
+set(OS_PLATFORM "${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_PROCESSOR}")
+set(OUTPUT_DIR "${PROJECT_SOURCE_DIR}/Distr/${OS_PLATFORM}/${CMAKE_BUILD_TYPE}")
 
-#if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-#	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14" )
-#endif()
+MESSAGE ("OS_PLATFORM: " ${OS_PLATFORM})
+MESSAGE ("OUTPUT_DIR: " ${OUTPUT_DIR}\n)
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${OUTPUT_DIR}/lib")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${OUTPUT_DIR}/bin")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${OUTPUT_DIR}/bin")
+
+set(ZHR_HEADER_FILES
+	zhrf.h
+) 
+
+set(ZHR_SOURCE_FILES
+	zhrf.cpp
+)
+
+if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17" )
+#else()
+#	assign_source_group(${ZHR_HEADER_FILES} ${ZHR_SOURCE_FILES})
+endif()
 
 add_subdirectory(zhr_lib)
 
-# Module tests
-add_subdirectory(../../tests/module module_tests)
+add_executable( ${ZHR_PROJECT} 
+	${ZHR_HEADER_FILES}
+	${ZHR_SOURCE_FILES}
+)
+
+target_include_directories( ${ZHR_PROJECT}
+	PUBLIC ./zhr_lib
+)
+
+target_link_libraries( ${ZHR_PROJECT} zhr_lib )
+target_link_libraries( ${ZHR_PROJECT} ${CMAKE_THREAD_LIBS_INIT} )
+

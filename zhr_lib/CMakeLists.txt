@@ -1,31 +1,18 @@
-cmake_minimum_required(VERSION 3.4)
+cmake_minimum_required(VERSION 3.5)
 
-project(zhr)
-set(CMAKE_CONFIGURATION_TYPES Debug Release)
+project(zhr_lib)
 
-#get_filename_component(LIB_ZHR_PRODUCT ${CMAKE_CURRENT_SOURCE_DIR}/../../ ABSOLUTE)
-#set(OS_IDENT "${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_PROCESSOR}")
-#set(LIB_ZHR_DESTINATION ${ZHR_PRODUCT}/distr/lib/${OS_IDENT})
+# set(CMAKE_CONFIGURATION_TYPES Debug Release)
 
-#-------------	TO REMOVE THIS BLOCK.
-#include(../common.cmake)
+if (NOT OUTPUT_DIR)
+	set(OS_PLATFORM "${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_PROCESSOR}")
+	set(OUTPUT_DIR "${PROJECT_SOURCE_DIR}/Distr/${OS_PLATFORM}/${CMAKE_BUILD_TYPE}")
+endif()
 
-# Static library is created by command add_library(... STATIC ...)
-# and always is treated as "archive", not (dynamic) library.
+MESSAGE ("LIB_OUTPUT_DIR: " ${OUTPUT_DIR}\n)
 
-# To set output directory for it you can either set global 
-# variable _before_ command "add_library":
-#set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${DESTINATION}")
-# (variable ARCHIVE_OUTPUT_DIRECTORY doesn't influence)
-
-# or set current target property _after_ creation (preferred for subprojects): 
-#set_target_properties( ${PROJECT_NAME}
-#	PROPERTIES
-#  ARCHIVE_OUTPUT_DIRECTORY "${DESTINATION}" )
-
-# Ideally we suppose global variable is already set. 
-#set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${ZHR_DESTINATION}")
-#-------------
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${OUTPUT_DIR}/lib")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${OUTPUT_DIR}/bin")
 
 set(HEADER_FILES
 	zhrf_basis.h
