@@ -32,3 +32,5 @@
 zhr_lib/Build
 Build
 
+/Distrib/Windows_AMD64/bin/Debug/zhr.ilk
+/Distrib/Windows_AMD64/bin/Debug/zhr.pdb
