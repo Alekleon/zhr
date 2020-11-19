@@ -12,9 +12,7 @@
 *.pch
 
 # Compiled Dynamic libraries
-*.so
 *.dylib
-*.dll
 
 # Fortran module files
 *.mod
@@ -23,21 +21,14 @@
 # Compiled Static libraries
 *.lai
 *.la
-*.a
-*.lib
 
 # Executables
-*.exe
 *.out
 *.app
 .vs
 /zhr_lib.vcxproj.user
 /zhr.vcxproj.user
-Debug
-Release
 *.user
-zhr_lib/build
-build
+zhr_lib/Build
+Build
 
-/Debug/output/zhr.exe
-/Release/output/zhr.exe
