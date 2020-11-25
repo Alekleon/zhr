@@ -2,6 +2,7 @@
 #pragma once
 
 #include <string>
+#include <cassert>
 
 #ifdef TRUE 
 #	undef TRUE
@@ -14,6 +15,12 @@
 
 namespace ZHR_lib
 {
+
+	//	Just dully awaits for an user to press 'Enter'.
+	void WaitInput(bool vToNotify = TRUE, const std::string& rMessage = "Please press 'Enter' to continue...");
+
+	bool TestWaitInput();
+	bool TestBasis();
 
 #define zhr_assert(expression) assert (expression)
 	/*
@@ -30,9 +37,6 @@ namespace ZHR_lib
 	//	Write out an vrError. If vToFail makes program failure.
 	void Fail(const std::string & vrError, bool vToFail = FALSE);
 	*/
-
-	//	Just dully awaits any user's keyboard answer ('Enter', f.i.)
-	void WaitInput();
 
 	class AnZHRClass {
 
