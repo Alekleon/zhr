@@ -45,7 +45,8 @@ namespace ZHR_lib
 
 	bool TestBasis()
 	{
-		return TestWaitInput();
+//		return TestWaitInput();
+		return TRUE;
 	}
 
 	bool TestWaitInput()

@@ -29,7 +29,7 @@ do
 	shift
 done
 
-rm -rf ./"$BUILD_DIR"
+# rm -rf ./"$BUILD_DIR"
 install -d "$BUILD_DIR"
 cd "$BUILD_DIR"
 cmake -DCMAKE_CXX_COMPILER=$CXX_COMPILER -DCMAKE_C_COMPILER=$C_COMPILER -DCMAKE_BUILD_TYPE=$COMPILE_MODE ../
