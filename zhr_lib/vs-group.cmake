@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.0.0)
+
+function(Add_VS_Groups)
+	foreach(_source IN ITEMS ${ARGN})
+		if(IS_ABSOLUTE "${_source}")
+			file(RELATIVE_PATH _source_relative "${CMAKE_CURRENT_SOURCE_DIR}" "${_source}")
+		else(IS_ABSOLUTE "${_source}")
+			set(_source_relative "${_source}")
+		endif(IS_ABSOLUTE "${_source}")
+
+		get_filename_component(_source_path_native "${_source_relative}" DIRECTORY)
+		if (WIN32)
+			string(REPLACE "/" "\\" _source_path "${_source_path_native}")
+		else(WIN32)
+			set(_source_path "${_source_path_native}")
+		endif(WIN32)
+
+		source_group("${_source_path}" FILES "${_source}")
+	endforeach(_source)
+endfunction(Add_VS_Groups)

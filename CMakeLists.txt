@@ -42,9 +42,10 @@ add_executable( ${PROJECT_NAME}
 	${ZHR_SOURCE_FILES}
 )
 
-target_include_directories( ${PROJECT_NAME}
-	PUBLIC ./zhr_lib
-)
+#target_include_directories( ${PROJECT_NAME} PUBLIC
+#	./zhr_lib
+#	./zhr_lib/Includes
+#)
 
 target_link_libraries( ${PROJECT_NAME} zhr_lib )
 target_link_libraries( ${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT} )

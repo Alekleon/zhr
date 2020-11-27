@@ -34,3 +34,13 @@ Build
 
 /Distrib/Windows_AMD64/bin/Debug/zhr.ilk
 /Distrib/Windows_AMD64/bin/Debug/zhr.pdb
+/zhr_lib/cts_lib.cpp
+/zhr_lib/zhrf_new.cpp
+/zhr_lib/cts_lib.h
+/zhr_lib/zhrf_new.h
+/Distrib/Windows_AMD64/lib/Debug/*.lastcodeanalysissucceeded
+/Distrib/Windows_AMD64/lib/Release/*.lastcodeanalysissucceeded
+/Distrib/Windows_AMD64/bin/Debug/*.lastcodeanalysissucceeded
+/Distrib/Windows_AMD64/bin/Release/*.iobj
+/Distrib/Windows_AMD64/bin/Release/*.ipdb
+/Distrib/Windows_AMD64/bin/Release/*.pdb
