@@ -24,6 +24,15 @@
     <ClInclude Include="Includes\zhrf_system.h">
       <Filter>Includes</Filter>
     </ClInclude>
+    <ClInclude Include="Includes\zhrf_files.h">
+      <Filter>Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\zhrf_strings.h">
+      <Filter>Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\zhrf_time.h">
+      <Filter>Includes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\zhrf_basis.cpp">
@@ -33,6 +42,15 @@
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="Sources\zhrf_system.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\zhrf_files.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\zhrf_strings.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\zhrf_time.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>

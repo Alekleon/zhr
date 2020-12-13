@@ -9,12 +9,13 @@ namespace ZHR_lib
 	//	ALL SORTS OF THINGS
 
 	//	Just dully awaits for the user to press 'Enter'.
-	void WaitInput(bool vToNotify = TRUE, const std::string& rMessage = "Please press 'Enter' to continue...");
+//	void ZHR_FUNC(WaitInput)(bool vToNotify = TRUE, const std::string& rMessage = "Please press 'Enter' to continue...");
+	void _Fn_WaitInput(bool vToNotify = TRUE, const std::string& rMessage = "Please press 'Enter' to continue...");
 
 	//	ALL SORTS OF THINGS
 	///////////////////////////////////////////////////////////////////////////
 
-	class AnZHRClass {
+	class _An_ZHRClass {
 
 	protected:
 		std::string MError = "";

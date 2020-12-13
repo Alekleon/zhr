@@ -26,13 +26,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Includes\zhrf_basis.h" />
+    <ClInclude Include="Includes\zhrf_files.h" />
     <ClInclude Include="Includes\zhrf_lib.h" />
+    <ClInclude Include="Includes\zhrf_strings.h" />
     <ClInclude Include="Includes\zhrf_system.h" />
+    <ClInclude Include="Includes\zhrf_time.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\zhrf_basis.cpp" />
+    <ClCompile Include="Sources\zhrf_files.cpp" />
     <ClCompile Include="Sources\zhrf_lib.cpp" />
+    <ClCompile Include="Sources\zhrf_strings.cpp" />
     <ClCompile Include="Sources\zhrf_system.cpp" />
+    <ClCompile Include="Sources\zhrf_time.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

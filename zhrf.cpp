@@ -4,5 +4,5 @@
 int main(int vArgc, char * ppArgs[])
 {
 	ZHR_ASSERT (ZHR_lib::TestBasis(), "Tests failed...\n");
-	ZHR_lib::WaitInput();
+	ZHR_lib::_Fn_WaitInput();
 }

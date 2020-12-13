@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 //	If NDEBUG is not defined assert function operates.
-//	cmake rules this macro, pure VS doesn't.
+//	cmake rules this macro, pure VS f.i. doesn't.
 //#undef DEBUG
 //#undef NDEBUG
 //#define DEBUG
@@ -39,11 +39,17 @@ namespace ZHR_lib
 		)												\
 	)
 
+///////////////////////////////////////////////////////////////////////////////
+//	These are used to global replacements in lib files.
+
 	//	Prefix for zhr functions
-#define ZHR_FUNC _F_
+#define ZHR_FUNC(FunctionName) _Fn_##FunctionName
 	//	Prefix for zhr classes
-#define ZHR_CLASS _An_
+#define ZHR_CLASS(ClassName) _An_##ClassName
 	//	Prefix for zhr enumerations
-#define ZHR_ENUM _E_
+#define ZHR_ENUM(EnumName) _En_##EnumName
+
+//	These are used to global replacements in lib files.
+///////////////////////////////////////////////////////////////////////////////
 
 }	//	namespace ZHR_lib

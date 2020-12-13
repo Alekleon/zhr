@@ -4,7 +4,7 @@ namespace ZHR_lib
 {
 
 	//	Just dully awaits for an user to press 'Enter'.
-	void WaitInput(bool vToNotify, const std::string& vMessage)
+	void _Fn_WaitInput(bool vToNotify, const std::string& vMessage)
 	{
 		if (vToNotify) {
 			std::cout << vMessage;
@@ -13,18 +13,18 @@ namespace ZHR_lib
 	}
 
 	//	Last text error in methods of object.
-	std::string AnZHRClass::LastError() const
+	std::string _An_ZHRClass::LastError() const
 	{
 		return MError;
 	}
 
 	bool TestWaitInput()
 	{
-		WaitInput(FALSE);
-		WaitInput();
-		WaitInput();
-		WaitInput(TRUE, "dfsdfdfsdf");
-		WaitInput(TRUE, std::string("asdfasdf"));
+		_Fn_WaitInput(FALSE);
+		_Fn_WaitInput();
+		_Fn_WaitInput();
+		_Fn_WaitInput(TRUE, "dfsdfdfsdf");
+		_Fn_WaitInput(TRUE, std::string("asdfasdf"));
 		return TRUE;
 	}
 	bool TestErrors()

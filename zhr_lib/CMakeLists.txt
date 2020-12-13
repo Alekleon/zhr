@@ -20,13 +20,23 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${OUTPUT_DIR}/bin")
 
 set(ZHR_LIB_HEADER_FILES
 	Includes/zhrf_basis.h
+
 	Includes/zhrf_system.h
+	Includes/zhrf_strings.h
+	Includes/zhrf_files.h
+	Includes/zhrf_time.h
+
 	Includes/zhrf_lib.h
 ) 
 
 set(ZHR_LIB_SOURCE_FILES
 	Sources/zhrf_basis.cpp
+
 	Sources/zhrf_system.cpp
+	Sources/zhrf_strings.cpp
+	Sources/zhrf_files.cpp
+	Sources/zhrf_time.cpp
+
 	Sources/zhrf_lib.cpp	
 )
 
